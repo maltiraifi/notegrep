@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# CodeMap (generated onboarding data)
+.codemap/
+
+# Vector store cache (if stored on disk)
+vector-store/
+*.vector-cache
+
+# Test repositories (cloned for indexing)
+repos/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
