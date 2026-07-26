@@ -25,7 +25,7 @@ export async function chunkJob(jobData) {
   return {
     success: true,
     userId: userId,
-    documentId: job.data.documentId,
+    documentId: documentId,
     totalChunks: chunks.length,
   };
 }

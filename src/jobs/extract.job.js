@@ -22,7 +22,6 @@ export async function extractJob({ documentId, filePath, userId }) {
 
     const cleanedText = cleanText(rawText);
 
-    // FIX: Use .add() method
     await chunkQueue.add("chunk-document", {
       documentId,
       text: cleanedText,
