@@ -39,3 +39,5 @@ repos/
 tmp/
 temp/
 *.tmp
+uploads/
+search_vector_store.json

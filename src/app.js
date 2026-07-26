@@ -5,6 +5,9 @@ import express from "express";
 import cors from "cors";
 import documentRoutes from "./routes/document.route.js";
 
+import { loadFromDisk } from "./services/vector.js";
+await loadFromDisk();
+
 import "./workers/extract.worker.js";
 import "./workers/chunk.worker.js";
 import "./workers/embed.worker.js";

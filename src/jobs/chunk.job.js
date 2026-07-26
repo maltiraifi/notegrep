@@ -1,10 +1,17 @@
+import { redis } from "../config/redis.js";
 import { embedQueue } from "../queues/embed.queue.js";
 import { chunkByCharacters } from "../services/chunk.js";
 
 export async function chunkJob(jobData) {
   const { documentId, text, userId, metadata = {} } = jobData;
 
-  const chunks = chunkByCharacters(text, 500, 10);
+  const CHUNK_SIZE = 500;
+  const OVERLAP = 10;
+
+  const chunks = chunkByCharacters(text, CHUNK_SIZE, OVERLAP);
+
+  await redis.set(`doc:${documentId}:total`, chunks.length);
+  await redis.set(`doc:${documentId}:processed`, 0);
 
   const embedJobs = chunks.map((chunk, index) => {
     return embedQueue.add("embed-chunk", {
@@ -12,9 +19,11 @@ export async function chunkJob(jobData) {
       documentId: documentId,
       userId: userId,
       chunkIndex: index,
+      totalChunks: chunks.length,
       metadata: {
         ...metadata,
-        chunkSize: chunks.length,
+        chunkSize: CHUNK_SIZE,
+        totalChunks: chunks.length,
         strategy: "fixed-character",
       },
     });

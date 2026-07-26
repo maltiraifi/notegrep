@@ -9,6 +9,7 @@ export async function embedJob(jobData) {
     documentId,
     userId,
     chunkIndex,
+    chunk,
     embedding: chunkEmbedding,
     metadata,
   });
