@@ -31,7 +31,7 @@ const fileFilter = (req, file, cb) => {
   if (ok) {
     cb(null, ok);
   } else {
-    cb(new Error(""), false);
+    cb(new Error("Unsupported file type"), false);
   }
 };
 

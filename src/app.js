@@ -1,10 +1,14 @@
-import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
-import documentRoutes from "./routes/document.route.js";
-
 dotenv.config();
 
+import express from "express";
+import cors from "cors";
+import documentRoutes from "./routes/document.route.js";
+
+import "./workers/extract.worker.js";
+import "./workers/chunk.worker.js";
+import "./workers/embed.worker.js";
+import "./workers/vector.worker.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
