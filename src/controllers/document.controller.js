@@ -1,6 +1,7 @@
 import fs from "fs";
 import crypto from "crypto";
 import { extractQueue } from "../queues/extract.queue.js";
+import { DEFAULT_CHUNKING } from "../config/chunking.js";
 
 export const uploadFile = async (req, res) => {
   try {
@@ -23,6 +24,7 @@ export const uploadFile = async (req, res) => {
       filePath: req.file.path,
       userId: "anonymous",
       originalName: req.file.originalname,
+      chunking: DEFAULT_CHUNKING,
     });
 
     res.status(200).json({

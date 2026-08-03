@@ -5,7 +5,7 @@ import {
   validatePDFFile,
 } from "../services/pdf.service.js";
 
-export async function extractJob({ documentId, filePath, userId }) {
+export async function extractJob({ documentId, filePath, userId, chunking }) {
   try {
     if (!validatePDFFile(filePath)) {
       throw new Error(`Invalid or missing file at path: ${filePath}`);
@@ -26,6 +26,7 @@ export async function extractJob({ documentId, filePath, userId }) {
       documentId,
       text: cleanedText,
       userId,
+      chunking,
       metadata: {
         originalLength: rawText.length,
         cleanedLength: cleanedText.length,

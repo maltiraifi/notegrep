@@ -1,14 +1,11 @@
 import { redis } from "../config/redis.js";
 import { embedQueue } from "../queues/embed.queue.js";
-import { chunkByCharacters } from "../services/chunk.js";
+import { chunk } from "../services/chunkers/index.js";
 
 export async function chunkJob(jobData) {
-  const { documentId, text, userId, metadata = {} } = jobData;
+  const { documentId, text, userId, chunking, metadata = {} } = jobData;
 
-  const CHUNK_SIZE = 500;
-  const OVERLAP = 10;
-
-  const chunks = chunkByCharacters(text, CHUNK_SIZE, OVERLAP);
+  const chunks = chunk(text, chunking);
 
   await redis.set(`doc:${documentId}:total`, chunks.length);
   await redis.set(`doc:${documentId}:processed`, 0);
@@ -22,9 +19,8 @@ export async function chunkJob(jobData) {
       totalChunks: chunks.length,
       metadata: {
         ...metadata,
-        chunkSize: CHUNK_SIZE,
+        strategy: chunking.strategy,
         totalChunks: chunks.length,
-        strategy: "fixed-character",
       },
     });
   });
