@@ -1,0 +1,192 @@
+[
+  {
+    "id": "q01",
+    "question": "What percentage of surveyed students have used BNPL services, and how many students does that represent?",
+    "expected_answer": "25.8% of respondents (n = 16) reported having used BNPL services.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      21
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_21"
+    ]
+  },
+  {
+    "id": "q02",
+    "question": "What is the gender breakdown of the survey sample?",
+    "expected_answer": "The sample is 79.0% male (n = 49) and 21.0% female (n = 13).",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      17
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_17"
+    ]
+  },
+  {
+    "id": "q03",
+    "question": "How many valid survey responses were collected, and what was the international student share?",
+    "expected_answer": "62 valid responses were collected, and the sample skews about 90% international students.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_12"
+    ]
+  },
+  {
+    "id": "q04",
+    "question": "What is the most common monthly income bracket among respondents?",
+    "expected_answer": "RM1,000–RM1,499 is the dominant bracket, at 38.7% of respondents (n = 24).",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      18
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_18"
+    ]
+  },
+  {
+    "id": "q05",
+    "question": "What is the most-used primary digital payment method, and what share of respondents use it?",
+    "expected_answer": "E-wallets are the most-used primary payment method, used by 43.5% of respondents.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      20
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_20"
+    ]
+  },
+  {
+    "id": "q06",
+    "question": "What percentage of respondents say they 'Never' use digital payments for daily transactions?",
+    "expected_answer": "Only 6.5% of respondents report 'Never' using digital payments for daily transactions.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      20
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_20"
+    ]
+  },
+  {
+    "id": "q07",
+    "question": "What are the mean, median, and mode for the number of digital payment platforms used?",
+    "expected_answer": "Mean = 1.89, median = 2, mode = 2 — a near-symmetric distribution centred on 2 platforms.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      25
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_25"
+    ]
+  },
+  {
+    "id": "q08",
+    "question": "What percentage of respondents are left with less than RM50, or nothing, by month-end?",
+    "expected_answer": "58.0% of respondents are left with less than RM50 or nothing at all by month-end.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      23
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_23"
+    ]
+  },
+  {
+    "id": "q09",
+    "question": "What percentage of respondents do not set a monthly budget at all?",
+    "expected_answer": "22.6% of respondents do not budget at all.",
+    "difficulty": "easy",
+    "reasoning_type": "single_chunk_lookup",
+    "chunk_indices": [
+      23
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_23"
+    ]
+  },
+  {
+    "id": "q10",
+    "question": "How does mean online shopping spend compare between BNPL users and non-users, and how does that connect to the categorical spend-band breakdown in section 3.3.1?",
+    "expected_answer": "The box plot shows non-users have a higher mean spend (RM103.0) than BNPL users (RM93.8), driven by high-spending outliers among non-users. But the categorical breakdown shows BNPL users are actually more concentrated in the moderate RM50–199 bands (31.2% at RM50–99, 25.0% at RM100–199) while non-users cluster more at the very low end (30.4% below RM50) alongside a long tail of extreme spenders — so BNPL users spend more consistently in the middle, while non-users' higher mean comes from a few very high spenders.",
+    "difficulty": "hard",
+    "reasoning_type": "multi_chunk_synthesis",
+    "chunk_indices": [
+      29,
+      34
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_29",
+      "vec_{documentId}_34"
+    ]
+  },
+  {
+    "id": "q11",
+    "question": "Is there a relationship between the number of digital platforms a student uses and their online shopping spend, and what's the shape of the platform-count distribution itself?",
+    "expected_answer": "The scatter plot shows a modest positive slope: students using more digital payment platforms tend to spend somewhat more on online shopping. The underlying platform-count distribution is itself approximately symmetric and unimodal, centred at 2 platforms.",
+    "difficulty": "hard",
+    "reasoning_type": "multi_chunk_synthesis",
+    "chunk_indices": [
+      28,
+      25
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_28",
+      "vec_{documentId}_25"
+    ]
+  },
+  {
+    "id": "q12",
+    "question": "Do BNPL users end up in worse financial shape at month-end than non-users, and how does that square with their budgeting behavior?",
+    "expected_answer": "Yes — 68.7% of BNPL users are in acute financial distress (nothing or less than RM50) by month-end, versus 54.3% of non-users. This is despite BNPL users actually being more likely to set a budget (87.5% vs. 73.9%), which suggests the deferred-payment structure of BNPL undermines budgeting rather than a lack of financial planning intent.",
+    "difficulty": "hard",
+    "reasoning_type": "multi_chunk_synthesis",
+    "chunk_indices": [
+      36,
+      37
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_36",
+      "vec_{documentId}_37"
+    ]
+  },
+  {
+    "id": "q13",
+    "question": "What does the stem-and-leaf display reveal about platform usage that isn't obvious from the histogram's mean/median/mode alone?",
+    "expected_answer": "The stem-and-leaf display shows a slight right skew: although the mode is 2 platforms, there are more students at the high end (7 at 4 platforms) than at the low end (4 at 0 platforms), pulling the mean slightly below the median — a subtlety the summary statistics alone (mean 1.89, median 2, mode 2) don't fully convey.",
+    "difficulty": "hard",
+    "reasoning_type": "multi_chunk_synthesis",
+    "chunk_indices": [
+      25,
+      33
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_25",
+      "vec_{documentId}_33"
+    ]
+  },
+  {
+    "id": "q14",
+    "question": "What proportion of respondents have run out of money before month-end at least occasionally, combining the 'Frequently' and 'Occasionally' categories?",
+    "expected_answer": "64.5% have run out of money before month-end at least occasionally (30.6% 'Frequently' + 33.9% 'Occasionally').",
+    "difficulty": "medium",
+    "reasoning_type": "single_chunk_arithmetic",
+    "chunk_indices": [
+      24
+    ],
+    "expected_chunk_ids": [
+      "vec_{documentId}_24"
+    ]
+  }
+]
