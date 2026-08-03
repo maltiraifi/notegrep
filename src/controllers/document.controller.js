@@ -21,10 +21,12 @@ export const uploadFile = async (req, res) => {
 
     await extractQueue.add("extract-document", {
       documentId: documentId,
-      filePath: req.file.path,
       userId: "anonymous",
+      filePath: req.file.path,
       originalName: req.file.originalname,
-      chunking: DEFAULT_CHUNKING,
+      processing: {
+        chunking: DEFAULT_CHUNKING,
+      },
     });
 
     res.status(200).json({

@@ -6,8 +6,15 @@ import { addVector, persistStore } from "../services/vector.js";
 export const vectorWorker = new Worker(
   "vector",
   async (job) => {
-    const { documentId, userId, chunkIndex, chunk, embedding, metadata } =
-      job.data;
+    const {
+      documentId,
+      userId,
+      chunkIndex,
+      chunk,
+      processing,
+      embedding,
+      metadata,
+    } = job.data;
 
     await addVector({
       vector: embedding,
@@ -15,6 +22,7 @@ export const vectorWorker = new Worker(
       documentId,
       userId,
       chunkIndex,
+      processing,
       metadata: {
         ...metadata,
         storedAt: new Date().toISOString(),
