@@ -12,7 +12,12 @@ export async function embedJob(jobData) {
     chunkIndex,
     chunk,
     embedding: chunkEmbedding,
-    processing,
+    processing: {
+      ...processing,
+      embedding: {
+        model: "all-MiniLM-L6-V2",
+      },
+    },
     metadata,
   });
 
