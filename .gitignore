@@ -43,3 +43,4 @@ uploads/
 search_vector_store.json
 eval_results.json
 changes.txt
+log.txt

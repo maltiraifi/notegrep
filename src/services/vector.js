@@ -89,6 +89,16 @@ function cosineSimilarity(a, b) {
   return dot / (Math.sqrt(magA) * Math.sqrt(magB));
 }
 
+export function retrieve(queryVector, topK = 5) {
+  return store
+    .map((entry) => ({
+      ...entry,
+      score: cosineSimilarity(queryVector, entry.vector),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, topK);
+}
+
 /**
  * search top K
  */
